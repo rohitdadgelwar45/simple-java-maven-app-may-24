@@ -35,4 +35,11 @@ pipeline {
             }
         }
     }
+
+    post { 
+        failure { 
+            mail bcc: '', body: '$(env.JOB_URL} ', cc: 'rohitdadgelwar2002@gmail.com', from: '', replyTo: '', subject: 'Pipeline Failed', to: 'rohitdadgelwar123@gmail.com'
+        }
+    }
+    
 }
