@@ -41,7 +41,7 @@ pipeline {
             mail bcc: '', body: '\'$(env.JOB_URL}\'', cc: 'rohitdadgelwar2002@gmail.com', from: '', replyTo: '', subject: 'Pipeline Failed:(env.JOB_URL}', to: 'rohitdadgelwar123@gmail.com'
         }
         success { 
-            archiveArtifacts artifacts: '**/target/*.jar', followSymlinks: false
+            archiveArtifacts artifacts: '**/target/*.jar', followSymlinks: false, onlyIfSuccessful: true
         }
     }
     
