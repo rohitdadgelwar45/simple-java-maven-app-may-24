@@ -31,7 +31,7 @@ pipeline {
 
         stage('Deliver') {
             steps {
-                ech 'Deploy on Ec-2'
+                echo 'Deploy on Ec-2'
             }
         }
     }
@@ -39,6 +39,9 @@ pipeline {
     post { 
         failure { 
             mail bcc: '', body: '\'$(env.JOB_URL}\'', cc: 'rohitdadgelwar2002@gmail.com', from: '', replyTo: '', subject: 'Pipeline Failed:(env.JOB_URL}', to: 'rohitdadgelwar123@gmail.com'
+        }
+        success { 
+            archiveArtifacts artifacts: '**/target/*.jar', followSymlinks: false
         }
     }
     
