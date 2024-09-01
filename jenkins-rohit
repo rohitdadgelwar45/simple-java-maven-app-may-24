@@ -24,10 +24,10 @@ pipeline {
 
                 post { 
                       always { 
-                              junit stdioRetention: '', testResults: '	**/target / surefire-reports/TEST-com.mycompany.app.AppTest.xml'
+                              junit stdioRetention: '', testResults: '**/ target / surefire-reports/TEST-com.mycompany.app.AppTest.xml'
                               }
                     }
-         }
+              }
 
         stage('Deliver') {
             steps {
