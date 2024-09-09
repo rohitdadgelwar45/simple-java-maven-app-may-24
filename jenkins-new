@@ -6,6 +6,13 @@ pipeline {
     }
 
     stages {
+
+         stage('Git Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github', url: 'https://github.com/rohitdadgelwar45/simple-java-maven-app-may-24.git']])
+            }
+        }
+
         stage('build') {
             steps {
                 echo 'build'
