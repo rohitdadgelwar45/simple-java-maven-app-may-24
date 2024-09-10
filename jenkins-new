@@ -24,6 +24,11 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
+            post { 
+                always { 
+                    junit stdioRetention: '', testResults: '**/target/sure-fires/TEST-com.mycompany.app.AppTest.xml'
+                }
+            }
         }
         stage('Deliver') {
             steps {
