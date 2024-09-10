@@ -35,5 +35,10 @@ pipeline {
                 echo 'Deploy on Ec-2'
             }
         }
+        post { 
+                Fauiler { 
+                    mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'Build Fauiler: $(env.BUILD_NUMBER)', to: 'rohitdadgelwar123@gmail.com'
+                }
+            }
     }
 }
